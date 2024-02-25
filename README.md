@@ -94,3 +94,21 @@ latter one only for the `bNiceMatrix` environment, use
 \AtBeginEnvironment{bNiceMatrix}{\setlength{\arraycolsep}{2pt}}
 ```
 (Credits to Kristi)
+
+# Collaboration
+You're welcome so submit [issues](/issues) and/or [PRs](/pulls). Also feel free
+to chat about e.g. which packages (+options) you found helpful in the
+[discussions](/discussions). Especially if you decide on writing some more
+generating things with lua, I'd be very much interested so feel free to share.
+
+
+# Why is there a script mode / `main.script.tex`
+The attempt is to be able to typeset the same content in a consensed form as
+well as in a form more nice/natural to read (portrait, bigger font, only one
+column etc).
+
+To be honest I'm not using this very much on my own but it's there and you can
+even have small variations in the content (e.g. if you want to use some
+abbreviation on your cheatsheet to make a line fit one line in the output but
+want the script to be better readable) by using `\ifscript{tex-code}` and/or
+`\ifsheet{tex-code}`.
