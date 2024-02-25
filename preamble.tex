@@ -1,0 +1,299 @@
+%! TeX root: main.sheet.tex
+% above is only for VimTex to avoid this popup
+
+% ----- Math -----
+\usepackage{amsmath, amssymb} % mathematical Symbols
+\usepackage{nicematrix}
+\NiceMatrixOptions{cell-space-top-limit = 1pt,cell-space-bottom-limit = 1pt}
+
+% ----- Font -----
+\usepackage{fontspec} % LuaLaTeX
+
+\let\mathbbalt\mathbb
+\usepackage[math-style=ISO]{unicode-math}
+\let\mathbb\mathbbalt% UNIVERSAL RESET TO ORIGINAL \mathbb (unicode-math behaviour still with \symbb)
+
+\setmathfont{Latin Modern Math}
+\setmathfont{Latin Modern Math}[version=bold,FakeBold={3}]
+
+% ----- Packages -----
+\usepackage{xspace}
+\NewDocumentCommand{\zB}{}{z.\,B.\xspace}
+\NewDocumentCommand{\eg}{}{e.\,g.\xspace}
+\NewDocumentCommand{\tos}{}{\to\xspace}
+\usepackage{scrlayer-scrpage}                 % header and footer
+\usepackage[english]{babel}                   % translate fixed strings and load german hyphenation
+\usepackage[colorlinks=false,breaklinks=true]{hyperref}       % make e.g. toc clickable
+\usepackage[german=quotes]{csquotes}      % pick always the right quotation marks
+
+\usepackage{todo}               % to enter todos in the document
+
+\usepackage{graphicx}         % include graphics
+\usepackage{tabularx}         % better configuration of tables
+\newcolumntype{Y}{>{\small\centering\arraybackslash}X}
+\usepackage{ltxtable}         % use tabularx as longtable (\LTXtable{width}{pathToTable}) where the table referenced to contains of \begin{longtable}{preamble}content\end{longtable}
+\usepackage{booktabs}         % more nice rules (headrule/midrule/crule/bottomrule)
+
+\usepackage{xcolor}
+\usepackage[style=Latte]{catppuccinPalette}
+\NewDocumentCommand{\tc}{mm}{\textcolor{#1}{#2}}
+\NewDocumentCommand{\co}{m}{\color{#1}}
+% define own colors. Default: red,green,blue,cyan,magenta,yellow,black,gray,white,darkgray,lightgray,brown,lime,olive,orange,pink,purple,teal,violet
+% mix by using color1!percentage!color2 => take <percentage> from color1 and 100-<percentage> from color2
+% use [wave] to get the color at the specified wavelength (in nm)
+% define via \definecolor{name}{model/rgb}{spec-list}
+
+\usepackage{pifont} % special characters (insert via \ding{num})
+\NewDocumentCommand{\error}{}{\ding{53}\xspace} % cross
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SETUP FOR (PSEUDO-) CODE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[linesnumbered,vline,ruled,titlenotnumbered]{algorithm2e}  % for pseudocode
+\usepackage{listings}                                                 % for code
+\definecolor{myorange}{rgb}{1.0,0.4,0}
+\definecolor{mygray}{rgb}{0.4,0.4,0.4}
+\definecolor{keywordGreen}{RGB}{0,128,0}
+\definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
+\lstset{
+	rulecolor=\color{black},
+	emphstyle=\color{blue},
+	basicstyle=\scriptsize\sffamily,
+	stringstyle=\color{myorange},
+	commentstyle=\color{mygray},
+	keywordstyle=\color{keywordGreen},
+	keywordstyle=[2]\color{blue!70!black},
+%
+	backgroundcolor=\color{lightgrey},
+	frame=none,
+%
+	numbers=left,
+	numbersep=10pt,
+	numberstyle=\tiny,
+%
+	xleftmargin=2em,
+	framexleftmargin=2em,
+%
+	columns=fullflexible, % columns of chars
+	tabsize=4,
+%
+	captionpos=b,
+%
+	gobble=4,             % ignore the first 4 characters
+	breakautoindent=true, %
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+	breaklines=true,
+%
+	showstringspaces=false,
+	showtabs=false,
+	showspaces=false,
+	keepspaces=true,
+%
+	inputencoding=utf8, extendedchars=true,
+	literate=
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+{à}{{`a}}1 {è}{{`e}}1 {ì}{{`i}}1 {ò}{{`o}}1 {ù}{{`u}}1
+{À}{{`A}}1 {È}{{\'E}}1 {Ì}{{`I}}1 {Ò}{{`O}}1 {Ù}{{`U}}1
+{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+{Ã}{{\~A}}1 {ã}{{\~a}}1 {Õ}{{\~O}}1 {õ}{{\~o}}1
+{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+{€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+{»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+}
+
+\usepackage{multicol} % use \begin{multicols}{num} text \end{multicols} and the text will be automatically distributed
+\usepackage{multirow}
+
+% ----- Math shortcuts -----
+% short matrix
+\NewDocumentCommand{\mat}{m}{\ensuremath{\begin{bNiceMatrix}[c]#1\end{bNiceMatrix}}}
+\NewDocumentCommand{\ve}{m}{\symbf{#1}}
+\NewDocumentCommand{\ma}{m}{\symbf{#1}}
+
+% sets
+\NewDocumentCommand{\set}{m}{\ensuremath{\left\{#1\right\}}}    % e.g. \set{a,b,c} for {a,b,c}
+\NewDocumentCommand{\suchthat}{}{\ensuremath{\, \middle| \,}}   % e.g. \set{x \suchthat P(x)} for {x|P(x)}
+
+% number sets
+\NewDocumentCommand{\naturals}{}{\mathbb{N}}
+\NewDocumentCommand{\wholes}{}{\mathbb{N}_0}
+\NewDocumentCommand{\integers}{}{\mathbb{Z}}
+\NewDocumentCommand{\rationals}{}{\mathbb{Q}}
+\NewDocumentCommand{\reals}{}{\mathbb{R}}
+\NewDocumentCommand{\complexes}{}{\mathbb{C}}
+\NewDocumentCommand{\primes}{}{\mathbb{P}}
+
+% absolute value
+\NewDocumentCommand{\abs}{m}{\left|#1\right|}
+
+% brackets with automatic sizing
+\NewDocumentCommand{\rb}{m}{\ensuremath{\left(#1\right)}}                    % round brackets
+\NewDocumentCommand{\Sb}{m}{\ensuremath{\left[#1\right]}}                  % square brackets
+\NewDocumentCommand{\cb}{m}{\ensuremath{\left\{#1\right\}}}                  % curly brackets
+\NewDocumentCommand{\ab}{m}{\ensuremath{\left\langle#1\right\rangle}}        % angled brackets
+
+\NewDocumentCommand{\gdw}{}{\ensuremath{\Leftrightarrow}}
+\NewDocumentCommand{\where}{}{\ensuremath{\;|\;}}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\cond}{cond}
+\DeclareMathOperator{\rd}{rd}
+
+% ----- Tikz Stuff -----
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,fit,intersections,shapes}  % calc for $...$ calculations, positioning for .west .south positioning
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{trees}
+\tikzset{cross/.style={cross out, draw, 
+	minimum size=2*(#1-\pgflinewidth), 
+inner sep=0pt, outer sep=0pt}}
+
+\usepackage{pgfplots}                  % draw diagrams
+\pgfplotsset{compat=1.18}
+% \usepackage{pgfkeys}                   % nice key management
+
+% \pgfplotsset{
+% 	every axis/.style={
+% 		font=\scriptsize,
+% 		line width=0.4pt,
+% 		width = \textwidth,
+% 		samples=25,
+% 		grid=major,
+% 		grid style={gray!30},
+% 		axis lines = middle,
+% 		axis line style={->},
+% 		xticklabels=\empty,
+% 		yticklabels=\empty,
+% 		xlabel=u,
+% 		ylabel=i,
+% 		x label style={at={(axis description cs:+0.5,-0.01)},anchor=north},
+% 		y label style={at={(axis description cs:-0.01,+0.5)},rotate=90,anchor=south},
+% 	}
+% }
+
+% \makeatletter
+% \newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+% \newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+% \makeatother
+
+%%%%%%%%%%%%%%%%%%%
+% CONDENSED LISTS %
+%%%%%%%%%%%%%%%%%%%
+\newcounter{listi}
+\NewDocumentEnvironment{algo}{}{ % enumerate pendant
+	\begin{list}{
+			\thelisti.
+		}{
+		\usecounter{listi}
+		\setlength{\parskip}{0ex}
+		\setlength{\topsep}{0ex}
+		\setlength{\labelsep}{.25em}
+		\setlength{\parsep}{0ex}
+		\setlength{\rightmargin}{0pt}
+		\setlength{\itemsep}{0ex}
+		\setlength{\listparindent}{0pt}
+		\setlength{\labelwidth}{3em}
+		\setlength{\leftmargin}{\labelwidth}
+		\linespread{0.8}\selectfont
+	}
+}{
+	\end{list}
+}
+\NewDocumentEnvironment{itemm}{}{ % itemize pendant
+	\begin{list}{-}{
+		\setlength{\parskip}{0ex}
+		\setlength{\topsep}{0ex}
+		\setlength{\labelsep}{.25em}
+		\setlength{\parsep}{0ex}
+		\setlength{\rightmargin}{0pt}
+		\setlength{\itemsep}{0ex}
+		\setlength{\listparindent}{0pt}
+		\setlength{\labelwidth}{3em}
+		\setlength{\leftmargin}{\labelwidth}
+	}
+}{
+	\end{list}
+}
+
+\NewDocumentEnvironment{algo2c}{}{ % enumerate 2 column
+	\setlength{\columnseprule}{0pt}
+	\setlength\multicolsep{0pt}
+	\begin{multicols}{2}
+	\begin{algo}
+}{
+	\end{algo}
+	\end{multicols}
+}
+
+\newcounter{posNegi}
+\NewDocumentEnvironment{posNeg}{}{ % pos/neg List
+	\NewDocumentCommand{\PNpos}{}{\item[\tc{CatGreen}{\texttt{+}}]}%
+	\NewDocumentCommand{\PNneg}{}{\item[\tc{CatRed}{\texttt{-}}]}%
+	\begin{list}{%
+			\theposNegi.%
+		}{
+		\usecounter{posNegi}
+		\setlength{\parskip}{0ex}
+		\setlength{\topsep}{0ex}
+		\setlength{\labelsep}{.25em}
+		\setlength{\parsep}{0ex}
+		\setlength{\rightmargin}{0pt}
+		\setlength{\itemsep}{0ex}
+		\setlength{\listparindent}{0pt}
+		\setlength{\labelwidth}{3em}
+		\setlength{\leftmargin}{\labelwidth}
+	}
+}{
+	\end{list}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MORE LITERAL INCLUDEGRAPHICS COMMAND FOR CROPPING %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pgfkeys{
+	/graphicx/.cd,
+	left/.initial=0cm, left/.default=0cm,
+	right/.initial=0cm, right/.default=0cm,
+	top/.initial=0cm, top/.default=0cm,
+	bottom/.initial=0cm, bottom/.default=0cm,
+	pages/.initial=-, pages/.default=-,
+	width/.initial=\linewidth, width/.default=\linewidth,
+	code/.initial={}, code/.default={},
+}
+\NewDocumentCommand{\slides}{O{}m}{
+	\pgfkeys{/graphicx/.cd,left,right,top,bottom,pages,code,#1}
+	\includegraphics[
+		page=\pgfkeysvalueof{/graphicx/pages},
+		width=\pgfkeysvalueof{/graphicx/width},
+		clip,
+		trim=\pgfkeysvalueof{/graphicx/left} \pgfkeysvalueof{/graphicx/bottom} \pgfkeysvalueof{/graphicx/right} \pgfkeysvalueof{/graphicx/top},
+		% \pgfkeysvalueof{/graphicx/code}
+		]{#2}
+}
+
+\NewDocumentCommand{\good}{}{\texttt{\textcolor{CatGreen}{+}}\xspace}
+\NewDocumentCommand{\bad}{}{\texttt{\textcolor{CatRed}{-}}\xspace}
+
+\NewDocumentCommand{\partAbl}{mm}{\frac{\partial #1}{\partial #2}}
+
+% integrals
+\NewDocumentCommand{\diff}{}{\,\mathrm{d}}
+\NewDocumentCommand{\integral}{O{}O{}mm}{\int_{#1}^{#2} #3 \diff #4}
+
+% there is also \bar
+\NewDocumentCommand{\ov}{m}{\overline{#1}}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Expected}{E}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\st}{s.t.}

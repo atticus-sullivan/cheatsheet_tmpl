@@ -1,0 +1,47 @@
+%! TeX root: main.sheet.tex
+% above is only for VimTex to avoid this popup
+
+\begin{document}
+
+\begin{condMulticols}{3}
+	\input{sections/example}
+	\ifsheet{\newcolumn} % add a columnbreak
+
+	\begin{tabularx}{\linewidth}{r|*{10}{Y}}
+		mult
+		\directlua{require("utils").einmaleins(11,20)}
+	\end{tabularx}
+
+	\setlength{\tabcolsep}{.4em}
+	\begin{tabular}{*{16}{c}}
+		\directlua{require("utils").zweierpot(0,15)}
+	\end{tabular}
+
+	\parbox{\linewidth}{% % avoids page/columnbreak in between
+	ASCII-Tabelle:\\
+	\begin{tabularx}{\linewidth}{rcc|rcc|rcc|rcc}
+		% Dec & Hex & Char &
+		% Dec & Hex & Char &
+		% Dec & Hex & Char &
+		% Dec & Hex & Char \\ \hline
+		\directlua{require("utils").asciiTab(0,128,4)}
+	\end{tabularx}%
+	}
+
+	{\footnotesize%
+	\setlength{\tabcolsep}{.6em}
+	\begin{tabularx}{\linewidth}{c|*{16}{>{\centering\arraybackslash}X}}
+		$_{10} \to _{16}$ % TODO make this shorter or just leave empty and use a hedline
+		\directlua{require("utils").hexDec(0,256,16)}
+	\end{tabularx}%
+	}%
+
+	\setlength{\tabcolsep}{.6em}
+	\begin{tabularx}{\linewidth}{c|*{16}{>{\centering\arraybackslash}X}}
+		\directlua{require("utils").xor(0,256,16)}
+	\end{tabularx}%
+
+\end{condMulticols}
+
+\todos
+\end{document}

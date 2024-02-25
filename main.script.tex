@@ -1,0 +1,32 @@
+\documentclass{scrartcl} % options later in preambles
+
+\NewDocumentCommand{\ifscript}{m}{#1}
+\NewDocumentCommand{\ifsheet}{m}{}
+
+\input{preamble.tex}
+
+% ----- Settings -----
+\KOMAoptions{
+	paper=a4,           % set papersize
+	% paper=landscape,    % set paperformat
+	% fontsize=6.6pt,       % set fontsize
+	parskip=half,       % half a line will seperate paragraphs
+	headings=normal,    % headings in normalsize
+	twoside=false,      % onesided document
+	twocolumn=false,    % one columned pages
+	draft=false,         % show additional information
+	numbers=autoendperiod, % automatic punctuation in outline
+}
+
+% \setcounter{secnumdepth}{\partnumdepth}% unnumbered sections etc.
+
+% place in preamble and add "--shell-excape" to latex-run (for cluttex --shell-escape)
+\usepackage{tikz}
+\usetikzlibrary{external}
+\tikzexternalize[
+	prefix=figures/, % activate and define figures/ as cache folder
+]
+
+\NewDocumentEnvironment{condMulticols}{m}{}{}
+
+\input{main}

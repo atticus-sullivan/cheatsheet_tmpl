@@ -1,0 +1,112 @@
+\documentclass{scrartcl} % options later in preambles
+
+\NewDocumentCommand{\ifscript}{m}{}
+\NewDocumentCommand{\ifsheet}{m}{#1}
+
+\input{preamble}
+
+\usepackage{multicol} % use \begin{multicols}{num} text \end{multicols} and the text will be automatically distributed
+\usepackage{xcolor}
+
+% ----- Settings -----
+\KOMAoptions{
+	paper=a4,           % set papersize
+	paper=landscape,    % set paperformat
+	fontsize=6.6pt,     % set fontsize
+	parskip=half,       % half a line will seperate paragraphs
+	headings=normal,    % headings in normalsize
+	twoside=false,      % onesided document
+	twocolumn=false,    % one columned pages
+	draft=false,         % show additional information
+	numbers=autoendperiod, % automatic punctuation in outline
+}
+
+% turn off header and footer
+\pagestyle{empty}
+
+\areaset{835pt}{585pt}
+% (typearea)             \paperwidth      = 845.04694pt
+% (typearea)             \paperheight     = 597.50793pt
+\linespread{1.3}
+
+% indentation
+\setparsizes{0pt}{0pt}{1em plus 1fil}% indentation
+
+\setcounter{secnumdepth}{\partnumdepth}% unnumbered sections etc.
+
+\setlength{\columnseprule}{.01pt}
+\newlength{\columnsepruleBak}
+\setlength{\columnsepruleBak}{\columnseprule}
+
+\usepackage[style=Latte]{catppuccinPalette}
+
+\colorlet{sec}{CatRed}
+\colorlet{subsec}{CatBlue}
+\colorlet{subsubsec}{CatYellow}
+\colorlet{par}{CatGreen}
+\colorlet{subpar}{CatMauve}
+
+\setcounter{secnumdepth}{\partnumdepth}% unnumbered sections etc.
+
+% big titles for sections
+\RedeclareSectionCommand[
+  beforeskip=0pt,
+  afterskip=0pt,
+  afterindent=false,
+  runin=false,
+  font=\rmfamily\color{sec}\Large
+]{section}
+\newcommand*{\originalsectionlinesformat}{}
+\let\originalsectionlinesformat\sectionlinesformat
+\renewcommand*{\sectionlinesformat}[4]{%
+  \Ifstr{#1}{section}
+    {\setlength\parfillskip{0pt}\vskip-2ex\textcolor{black}{\rule{\linewidth}{0.25pt}}\nopagebreak\vskip-.1cm#4\nopagebreak\vskip-.3cm  \textcolor{black}{\rule{\linewidth}{0.25pt}}}
+    {\originalsectionlinesformat{#1}{#2}{#3}{#4}}%
+}
+
+% blue titles for subsections:
+\RedeclareSectionCommand[
+  runin=true,
+  beforeskip=0pt,
+  afterskip=1ex,
+  font=\rmfamily\color{subsec}
+]{subsection}
+
+% yellow titles for subsubsections:
+\RedeclareSectionCommand[
+  runin=true,
+  beforeskip=0pt,
+  afterskip=1ex,
+  font=\rmfamily\color{subsubsec}
+]{subsubsection}
+
+% green and bold text for important concepts
+\RedeclareSectionCommand[
+  runin=true,
+  beforeskip=0pt,
+  afterskip=1ex,
+  font=\rmfamily\color{par}
+]{paragraph}
+
+% green and bold text for important concepts
+\RedeclareSectionCommand[
+  runin=true,
+  beforeskip=0pt,
+  afterskip=1ex,
+  font=\rmfamily\color{subpar}
+]{subparagraph}
+
+% place in preamble and add "--shell-excape" to latex-run (for cluttex --shell-escape)
+\usepackage{tikz}
+\usetikzlibrary{external}
+\tikzexternalize[
+	prefix=figures/, % activate and define figures/ as cache folder
+]
+
+\NewDocumentEnvironment{condMulticols}{m}{
+	\begin{multicols*}{#1}
+}{
+	\end{multicols*}
+}
+
+\input{main}
