@@ -7,6 +7,8 @@ automatically being distributed). You can change the columns in `main.tex`
 (`condMulticols` argument) and the orientation in `main.sheet.tex`
 (`KOMAoptions` -> `paper` option).
 
+![Preview of a cheatsheet](img/cheatsheet-light.png)
+
 ## Assumptions / prerequisites
 This section briefely states some dependencies and some information about the
 environment.
