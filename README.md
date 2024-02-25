@@ -19,8 +19,9 @@ Some colors being used come from the
 [`catppuccinPalette`](https://github.com/atticus-sullivan/catpuccinPalette)
 package (not published on CTAN, thus not possible contained in a TeXlive
 installation). You can either search for `Cat<color>` in `main.sheet.tex` and
-replace the colors, or build `catpuccinPalette` and place the resulting `.sty`
-in your tex path (or the project root directory).
+replace the colors, or build `catpuccinPalette` (or download the `.sty` from the
+current release) and place the resulting `.sty` in your tex path (or the project
+root directory).
 
 ### TeX Engine
 I personally am in favour of the LuaLaTeX engine and use it (almost
