@@ -96,10 +96,13 @@ latter one only for the `bNiceMatrix` environment, use
 (Credits to Kristi)
 
 # Collaboration
-You're welcome so submit [issues](issues) and/or [PRs](/pulls). Also feel free
+You're welcome so submit
+[https://github.com/atticus-sullivan/cheatsheet_tmpl/issues](issues) and/or
+[PRs](https://github.com/atticus-sullivan/cheatsheet_tmpl/pulls). Also feel free
 to chat about e.g. which packages (+options) you found helpful in the
-[discussions](/discussions). Especially if you decide on writing some more
-generating things with lua, I'd be very much interested so feel free to share.
+[discussions](https://github.com/atticus-sullivan/cheatsheet_tmpl/discussions).
+Especially if you decide on writing some more generating things with lua, I'd be
+very much interested so feel free to share.
 
 
 # Why is there a script mode / `main.script.tex`
