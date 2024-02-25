@@ -41,6 +41,21 @@ template right now).
 You're free to use other tools like `latexmk` but you might want to adjust the
 `Makefile` accordingly.
 
+## Getting started
+- clone the repository
+- check dependencies (handle issues)
+- read through `preamble.tex`, most importantly the `NewDocumentCommand`
+`DeclareMathOperator` `NewDocumentEnvironment` statements as using the provided
+commands/environments might be useful when writing the content.
+- strip `main.tex` of everything you don't need (you might not need all otr even
+none of the generated tables)
+- create a new section-file in `sections/` (or copy the `sections/example.tex`),
+put your content there and add `\input{sections/<your section-file name>}` in
+`main.tex` (as shown with `sections/example.tex`).
+- Also feel free to tamper with the `preamble.tex` as you want to, remove
+packets you don't need, add some etc. The ones contained there are more like a
+suggestion what might be useful.
+
 ## Files
 This section briefly goes over the files belonging to this template
 
@@ -69,21 +84,6 @@ large.
 Contains some useful lua functions for automatically generating tables and
 packet haders. Have a look at the comment above the respective function (or the
 examples in the `main.tex` file) for usage of the individual function.
-
-## Getting started
-- clone the repository
-- check dependencies (handle issues)
-- read through `preamble.tex`, most importantly the `NewDocumentCommand`
-`DeclareMathOperator` `NewDocumentEnvironment` statements as using the provided
-commands/environments might be useful when writing the content.
-- strip `main.tex` of everything you don't need (you might not need all otr even
-none of the generated tables)
-- create a new section-file in `sections/` (or copy the `sections/example.tex`),
-put your content there and add `\input{sections/<your section-file name>}` in
-`main.tex` (as shown with `sections/example.tex`).
-- Also feel free to tamper with the `preamble.tex` as you want to, remove
-packets you don't need, add some etc. The ones contained there are more like a
-suggestion what might be useful.
 
 ## Notes on packets
 ### nicematrix
