@@ -85,8 +85,8 @@ put your content there and add `\input{sections/<your section-file name>}` in
 packets you don't need, add some etc. The ones contained there are more like a
 suggestion what might be useful.
 
-# Notes on packets
-## nicematrix
+## Notes on packets
+### nicematrix
 - you might want to use the `small` option for matrices or set
 `\setlength{\arraycolsep}{2pt}` for more condensed matrices. If you want the
 latter one only for the `bNiceMatrix` environment, use
@@ -97,7 +97,7 @@ latter one only for the `bNiceMatrix` environment, use
 ```
 (Credits to Kristi)
 
-# Collaboration
+## Collaboration
 You're welcome so submit
 [issues](https://github.com/atticus-sullivan/cheatsheet_tmpl/issuesissues)
 and/or [PRs](https://github.com/atticus-sullivan/cheatsheet_tmpl/pulls). Also
@@ -107,7 +107,7 @@ Especially if you decide on writing some more generating things with lua, I'd be
 very much interested so feel free to share.
 
 
-# Why is there a script mode / `main.script.tex`
+## Why is there a script mode / `main.script.tex`
 The attempt is to be able to typeset the same content in a consensed form as
 well as in a form more nice/natural to read (portrait, bigger font, only one
 column etc).
