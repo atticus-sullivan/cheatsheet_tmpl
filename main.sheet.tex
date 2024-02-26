@@ -60,7 +60,7 @@
 
 \usepackage[style=Latte]{catppuccinPalette}
 
-\colorlet{sec}{CatRed}
+\colorlet{sec}{CatMaroon}
 \colorlet{subsec}{CatBlue}
 \colorlet{subsubsec}{CatYellow}
 \colorlet{par}{CatGreen}
@@ -118,10 +118,10 @@
 
 % place in preamble and add "--shell-excape" to latex-run (for cluttex --shell-escape)
 \usepackage{tikz}
-\usetikzlibrary{external}
-\tikzexternalize[
-	prefix=figures/, % activate and define figures/ as cache folder
-]
+% \usetikzlibrary{external}
+% \tikzexternalize[
+% 	prefix=figures/, % activate and define figures/ as cache folder
+% ]
 
 \NewDocumentEnvironment{condMulticols}{m}{
 	\begin{multicols*}{#1}

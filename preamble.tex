@@ -25,7 +25,11 @@
 % ----- Math -----
 \usepackage{amsmath, amssymb} % mathematical Symbols
 \usepackage{nicematrix}
-\NiceMatrixOptions{cell-space-top-limit = 1pt,cell-space-bottom-limit = 1pt}
+\NiceMatrixOptions{
+	cell-space-top-limit=1pt,
+	cell-space-bottom-limit=1pt,
+	nullify-dots,
+}
 
 % ----- Font -----
 \usepackage{fontspec} % LuaLaTeX
@@ -43,8 +47,25 @@
 \NewDocumentCommand{\eg}{}{e.\,g.\xspace}
 \NewDocumentCommand{\tos}{}{\to\xspace}
 \usepackage{scrlayer-scrpage}                 % header and footer
+
+\usepackage{xcolor}
+\usepackage[style=Latte]{catppuccinPalette}
+
 \usepackage[english]{babel}                   % translate fixed strings and load german hyphenation
-\usepackage[colorlinks=false,breaklinks=true]{hyperref}       % make e.g. toc clickable
+% linkcolor=CatBlue
+% citecolor=CatGreen
+% filecolor=CatSky
+% menucolor=CatBlue
+% runcolor=CatSky
+% urlcolor=CatPink
+%
+% citebordercolor=CatGreen
+% filebordercolor=CatSky
+% linkbordercolor=CatBlue
+% menubordercolor=CatBlue
+% urlbordercolor=CatPink
+% runbordercolor=CatSky
+\usepackage[colorlinks=false, breaklinks=true, linkcolor=CatBlue, linkbordercolor=CatBlue]{hyperref}       % make e.g. toc clickable
 \usepackage[german=quotes]{csquotes}      % pick always the right quotation marks
 
 \usepackage{todo}               % to enter todos in the document
@@ -55,8 +76,6 @@
 \usepackage{ltxtable}         % use tabularx as longtable (\LTXtable{width}{pathToTable}) where the table referenced to contains of \begin{longtable}{preamble}content\end{longtable}
 \usepackage{booktabs}         % more nice rules (headrule/midrule/crule/bottomrule)
 
-\usepackage{xcolor}
-\usepackage[style=Latte]{catppuccinPalette}
 \NewDocumentCommand{\tc}{mm}{\textcolor{#1}{#2}}
 \NewDocumentCommand{\co}{m}{\color{#1}}
 % define own colors. Default: red,green,blue,cyan,magenta,yellow,black,gray,white,darkgray,lightgray,brown,lime,olive,orange,pink,purple,teal,violet
@@ -71,69 +90,69 @@
 % SETUP FOR (PSEUDO-) CODE %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \usepackage[linesnumbered,vline,ruled,titlenotnumbered]{algorithm2e}  % for pseudocode
-\usepackage{listings}                                                 % for code
-\definecolor{myorange}{rgb}{1.0,0.4,0}
-\definecolor{mygray}{rgb}{0.4,0.4,0.4}
-\definecolor{keywordGreen}{RGB}{0,128,0}
-\definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
-\lstset{
-	rulecolor=\color{black},
-	emphstyle=\color{blue},
-	basicstyle=\scriptsize\sffamily,
-	stringstyle=\color{myorange},
-	commentstyle=\color{mygray},
-	keywordstyle=\color{keywordGreen},
-	keywordstyle=[2]\color{blue!70!black},
-%
-	backgroundcolor=\color{lightgrey},
-	frame=none,
-%
-	numbers=left,
-	numbersep=10pt,
-	numberstyle=\tiny,
-%
-	xleftmargin=2em,
-	framexleftmargin=2em,
-%
-	columns=fullflexible, % columns of chars
-	tabsize=4,
-%
-	captionpos=b,
-%
-	gobble=4,             % ignore the first 4 characters
-	breakautoindent=true, %
-	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
-	breaklines=true,
-%
-	showstringspaces=false,
-	showtabs=false,
-	showspaces=false,
-	keepspaces=true,
-%
-	inputencoding=utf8, extendedchars=true,
-	literate=
-	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
-{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-{à}{{`a}}1 {è}{{`e}}1 {ì}{{`i}}1 {ò}{{`o}}1 {ù}{{`u}}1
-{À}{{`A}}1 {È}{{\'E}}1 {Ì}{{`I}}1 {Ò}{{`O}}1 {Ù}{{`U}}1
-{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
-{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
-{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
-{Ã}{{\~A}}1 {ã}{{\~a}}1 {Õ}{{\~O}}1 {õ}{{\~o}}1
-{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
-{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
-{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
-{€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
-{»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
-}
+% \usepackage{listings}                                                 % for code
+% \definecolor{myorange}{rgb}{1.0,0.4,0}
+% \definecolor{mygray}{rgb}{0.4,0.4,0.4}
+% \definecolor{keywordGreen}{RGB}{0,128,0}
+% \definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
+% \lstset{
+% 	rulecolor=\color{black},
+% 	emphstyle=\color{blue},
+% 	basicstyle=\scriptsize\sffamily,
+% 	stringstyle=\color{myorange},
+% 	commentstyle=\color{mygray},
+% 	keywordstyle=\color{keywordGreen},
+% 	keywordstyle=[2]\color{blue!70!black},
+% %
+% 	backgroundcolor=\color{lightgrey},
+% 	frame=none,
+% %
+% 	numbers=left,
+% 	numbersep=10pt,
+% 	numberstyle=\tiny,
+% %
+% 	xleftmargin=2em,
+% 	framexleftmargin=2em,
+% %
+% 	columns=fullflexible, % columns of chars
+% 	tabsize=4,
+% %
+% 	captionpos=b,
+% %
+% 	gobble=4,             % ignore the first 4 characters
+% 	breakautoindent=true, %
+% 	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+% 	breaklines=true,
+% %
+% 	showstringspaces=false,
+% 	showtabs=false,
+% 	showspaces=false,
+% 	keepspaces=true,
+% %
+% 	inputencoding=utf8, extendedchars=true,
+% 	literate=
+% 	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+% {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+% {à}{{`a}}1 {è}{{`e}}1 {ì}{{`i}}1 {ò}{{`o}}1 {ù}{{`u}}1
+% {À}{{`A}}1 {È}{{\'E}}1 {Ì}{{`I}}1 {Ò}{{`O}}1 {Ù}{{`U}}1
+% {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+% {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+% {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+% {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+% {Ã}{{\~A}}1 {ã}{{\~a}}1 {Õ}{{\~O}}1 {õ}{{\~o}}1
+% {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+% {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+% {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+% {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+% {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+% }
 
 \usepackage{multicol} % use \begin{multicols}{num} text \end{multicols} and the text will be automatically distributed
-\usepackage{multirow}
+% \usepackage{multirow}
 
 % ----- Math shortcuts -----
 % short matrix
-\NewDocumentCommand{\mat}{m}{\ensuremath{\begin{bNiceMatrix}[c]#1\end{bNiceMatrix}}}
+\NewDocumentCommand{\mat}{O{}m}{\ensuremath{\begin{bNiceMatrix}[c,#1]#2\end{bNiceMatrix}}}
 \NewDocumentCommand{\ve}{m}{\symbf{#1}}
 \NewDocumentCommand{\ma}{m}{\symbf{#1}}
 
@@ -166,18 +185,24 @@
 \DeclareMathOperator{\cond}{cond}
 \DeclareMathOperator{\rd}{rd}
 
+\usepackage{pgfkeys}                   % nice key management
 % ----- Tikz Stuff -----
 \usepackage{tikz}
 \usetikzlibrary{calc,positioning,fit,intersections,shapes}  % calc for $...$ calculations, positioning for .west .south positioning
-\usetikzlibrary{graphs,graphdrawing}
-\usegdlibrary{trees}
-\tikzset{cross/.style={cross out, draw, 
-	minimum size=2*(#1-\pgflinewidth), 
-inner sep=0pt, outer sep=0pt}}
+% \usetikzlibrary{graphs,graphdrawing}
+% \usegdlibrary{trees}
+% \tikzset{
+% 	cross/.style={
+% 		cross out,
+% 		draw,
+% 		minimum size=2*(#1-\pgflinewidth),
+% 		inner sep=0pt,
+% 		outer sep=0pt,
+% 	}
+% }
 
-\usepackage{pgfplots}                  % draw diagrams
-\pgfplotsset{compat=1.18}
-% \usepackage{pgfkeys}                   % nice key management
+% \usepackage{pgfplots}                  % draw diagrams
+% \pgfplotsset{compat=1.18}
 
 % \pgfplotsset{
 % 	every axis/.style={
@@ -202,6 +227,10 @@ inner sep=0pt, outer sep=0pt}}
 % \newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
 % \newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
 % \makeatother
+
+% config for packat priting with lua
+\newlength{\packetcolsep}
+\setlength{\packetcolsep}{1pt}
 
 %%%%%%%%%%%%%%%%%%%
 % CONDENSED LISTS %
