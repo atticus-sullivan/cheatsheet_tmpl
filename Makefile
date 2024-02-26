@@ -46,6 +46,8 @@ spellA: $(FILES)
 spellT: $(FILES)
 	-textidote --check de --remove tikzpicture --remove-macros autoref --replace replacements.txt --dict ./dict.txt --output html main.tex > main-texidote.html
 
-pack: clean
-	cd .. && $(RM) cheat_templ.tar.gz
-	cd .. && apack cheatsheet.tar.gz cheatsheet/
+# would include .git and other files -> don't do it (github automatically
+# attatches zip to releases maybe this is the way to go)
+pack:
+	@if [ -n "$$(git status --porcelain)" ] ; then echo "Unstaged changes -> don't create archive of git repo" ; exit 1 ; fi
+	git archive --output ../cheatsheet.tar.gz HEAD
