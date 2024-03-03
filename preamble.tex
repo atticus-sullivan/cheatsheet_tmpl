@@ -237,38 +237,40 @@
 %%%%%%%%%%%%%%%%%%%
 \newcounter{listi}
 \NewDocumentEnvironment{algo}{}{ % enumerate pendant
-	\begin{list}{
-			\thelisti.
-		}{
-		\usecounter{listi}
-		\setlength{\parskip}{0ex}
-		\setlength{\topsep}{0ex}
-		\setlength{\labelsep}{.25em}
-		\setlength{\parsep}{0ex}
-		\setlength{\rightmargin}{0pt}
-		\setlength{\itemsep}{0ex}
-		\setlength{\listparindent}{0pt}
-		\setlength{\labelwidth}{3em}
-		\setlength{\leftmargin}{\labelwidth}
-		\linespread{0.8}\selectfont
-	}
-}{
-	\end{list}
+	\begin{list}{%
+			\thelisti.%
+		}{%
+		\usecounter{listi}%
+		\setlength{\parskip}{0ex}%
+		\setlength{\topsep}{0ex}%
+		\setlength{\partopsep}{0ex}%
+		\setlength{\labelsep}{.25em}%
+		\setlength{\parsep}{0ex}%
+		\setlength{\rightmargin}{0pt}%
+		\setlength{\itemsep}{0ex}%
+		\setlength{\listparindent}{0pt}%
+		\setlength{\labelwidth}{3em}%
+		\setlength{\leftmargin}{\labelwidth}%
+		\linespread{0.8}\selectfont%
+	}%
+}{%
+	\end{list}%
 }
 \NewDocumentEnvironment{itemm}{}{ % itemize pendant
-	\begin{list}{-}{
-		\setlength{\parskip}{0ex}
-		\setlength{\topsep}{0ex}
-		\setlength{\labelsep}{.25em}
-		\setlength{\parsep}{0ex}
-		\setlength{\rightmargin}{0pt}
-		\setlength{\itemsep}{0ex}
-		\setlength{\listparindent}{0pt}
-		\setlength{\labelwidth}{3em}
-		\setlength{\leftmargin}{\labelwidth}
-	}
-}{
-	\end{list}
+	\begin{list}{-}{%
+		\setlength{\parskip}{0ex}%
+		\setlength{\topsep}{0ex}%
+		\setlength{\partopsep}{0ex}%
+		\setlength{\labelsep}{.25em}%
+		\setlength{\parsep}{0ex}%
+		\setlength{\rightmargin}{0pt}%
+		\setlength{\itemsep}{0ex}%
+		\setlength{\listparindent}{0pt}%
+		\setlength{\labelwidth}{3em}%
+		\setlength{\leftmargin}{\labelwidth}%
+	}%
+}{%
+	\end{list}%
 }
 
 \NewDocumentEnvironment{algo2c}{}{ % enumerate 2 column
@@ -287,20 +289,21 @@
 	\NewDocumentCommand{\PNneg}{}{\item[\tc{CatRed}{\texttt{-}}]}%
 	\begin{list}{%
 			\theposNegi.%
-		}{
-		\usecounter{posNegi}
-		\setlength{\parskip}{0ex}
-		\setlength{\topsep}{0ex}
-		\setlength{\labelsep}{.25em}
-		\setlength{\parsep}{0ex}
-		\setlength{\rightmargin}{0pt}
-		\setlength{\itemsep}{0ex}
-		\setlength{\listparindent}{0pt}
-		\setlength{\labelwidth}{3em}
-		\setlength{\leftmargin}{\labelwidth}
-	}
-}{
-	\end{list}
+		}{%
+		\usecounter{posNegi}%
+		\setlength{\parskip}{0ex}%
+		\setlength{\topsep}{0ex}%
+		\setlength{\partopsep}{0ex}%
+		\setlength{\labelsep}{.25em}%
+		\setlength{\parsep}{0ex}%
+		\setlength{\rightmargin}{0pt}%
+		\setlength{\itemsep}{0ex}%
+		\setlength{\listparindent}{0pt}%
+		\setlength{\labelwidth}{3em}%
+		\setlength{\leftmargin}{\labelwidth}%
+	}%
+}{%
+	\end{list}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
