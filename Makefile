@@ -19,12 +19,12 @@ default: $(MAIN).pdf
 $(MAIN_script).pdf: $(MAIN_script).tex $(FILES)
 	test -d $(AUX) || mkdir $(AUX)
 	test -d $(AUX)/figures || mkdir $(AUX)/figures
-	cluttex --output-directory=$(AUX) --biber --max-iterations=20 --change-directory -e lualatex $(OPT) "$<"
+	cluttex_teal --output-directory=$(AUX) --biber --max-iterations=20 --change-directory -e lualatex $(OPT) "$<"
 
 $(MAIN_sheet).pdf: $(MAIN_sheet).tex $(FILES)
 	test -d $(AUX) || mkdir $(AUX)
 	test -d $(AUX)/figures || mkdir $(AUX)/figures
-	cluttex --output-directory=$(AUX) --biber --max-iterations=20 --change-directory -e lualatex $(OPT) "$<"
+	cluttex_teal --output-directory=$(AUX) --biber --max-iterations=20 --change-directory -e lualatex $(OPT) "$<"
 
 all:
 	make $(MAIN_sheet).pdf
