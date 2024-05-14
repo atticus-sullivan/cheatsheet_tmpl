@@ -65,7 +65,7 @@
 % menubordercolor=CatBlue
 % urlbordercolor=CatPink
 % runbordercolor=CatSky
-\usepackage[colorlinks=false, breaklinks=true, linkcolor=CatBlue, linkbordercolor=CatBlue]{hyperref}       % make e.g. toc clickable
+\usepackage[colorlinks=false, breaklinks=true, linkcolor=CatBlue, linkbordercolor=CatBlue, pdfborder={0 0 0.5}]{hyperref}       % make e.g. toc clickable
 \usepackage[german=quotes]{csquotes}      % pick always the right quotation marks
 
 \usepackage{todo}               % to enter todos in the document
@@ -271,6 +271,16 @@
 	}%
 }{%
 	\end{list}%
+}
+
+\NewDocumentEnvironment{item2c}{}{ % itemize 2 column
+	\setlength{\columnseprule}{0pt}
+	\setlength\multicolsep{0pt}
+	\begin{multicols}{2}
+	\begin{itemm}
+}{
+	\end{itemm}
+	\end{multicols}
 }
 
 \NewDocumentEnvironment{algo2c}{}{ % enumerate 2 column
