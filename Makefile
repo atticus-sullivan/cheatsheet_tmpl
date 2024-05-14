@@ -6,10 +6,10 @@ MAIN_script  := main.script
 # change here if you want to build the script version by default
 MAIN := $(MAIN_sheet)
 
-FILES := $(MAIN).tex main.tex Makefile sections/*.tex
+FILES := $(MAIN).tex main.tex Makefile sections/*.tex preamble.tex
 
-AUX = tex-aux
-OPT =
+AUX ?= tex-aux
+CLUTTEX_OPT ?= --max-iterations=20 --change-directory --memoize=python
 
 .PRECIOUS: $(MAIN_sheet).pdf $(MAIN_script).pdf
 
@@ -18,20 +18,18 @@ default: $(MAIN).pdf
 
 $(MAIN_script).pdf: $(MAIN_script).tex $(FILES)
 	test -d $(AUX) || mkdir $(AUX)
-	test -d $(AUX)/figures || mkdir $(AUX)/figures
-	cluttex_teal --output-directory=$(AUX) --biber --max-iterations=20 --change-directory -e lualatex $(OPT) "$<"
+	cluttex_teal --output-directory=$(AUX) -e lualatex $(OPT) "$<"
 
 $(MAIN_sheet).pdf: $(MAIN_sheet).tex $(FILES)
 	test -d $(AUX) || mkdir $(AUX)
-	test -d $(AUX)/figures || mkdir $(AUX)/figures
-	cluttex_teal --output-directory=$(AUX) --biber --max-iterations=20 --change-directory -e lualatex $(OPT) "$<"
+	cluttex_teal --output-directory=$(AUX) -e lualatex $(OPT) "$<"
 
 all:
 	make $(MAIN_sheet).pdf
 	make $(MAIN_script).pdf
 
 cont: $(FILES)
-	$(MAKE) $(MAIN).pdf OPT="--watch=inotifywait"
+	$(MAKE) $(MAIN).pdf OPT="$(OPT) --watch=inotifywait --memoize_opt=readonly"
 
 count:
 	texcount -col -inc main.tex
