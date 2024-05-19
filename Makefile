@@ -18,11 +18,11 @@ default: $(MAIN).pdf
 
 $(MAIN_script).pdf: $(MAIN_script).tex $(FILES)
 	test -d $(AUX) || mkdir $(AUX)
-	cluttex_teal --output-directory=$(AUX) -e lualatex $(OPT) "$<"
+	cluttealtex --output-directory=$(AUX) -e lualatex $(OPT) "$<"
 
 $(MAIN_sheet).pdf: $(MAIN_sheet).tex $(FILES)
 	test -d $(AUX) || mkdir $(AUX)
-	cluttex_teal --output-directory=$(AUX) -e lualatex $(OPT) "$<"
+	cluttealtex --output-directory=$(AUX) -e lualatex $(OPT) "$<"
 
 all:
 	make $(MAIN_sheet).pdf
