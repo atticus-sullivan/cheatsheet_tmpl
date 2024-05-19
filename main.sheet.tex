@@ -42,7 +42,7 @@
 
 % ----- Font -----
 % define sans serif font as default font family
-% \renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
 % % \setoperatorfont\symup
 
 % % use fira sans (sans serif font with math sans serif)
@@ -80,7 +80,7 @@
 % 	Scale=1,
 % 	Numbers={Proportional},
 % ]
-% % saldy fira math is not complete, some symbols are missing -> use them from
+% % sadly fira math is not complete, some symbols are missing -> use them from
 % % other fonts
 % \setmathfont[range="22C3,Extension=.otf]{STIXTwoMath-Regular} % bigcup
 % \setmathfont[range="2216,Extension=.otf]{STIXTwoMath-Regular} % setminus
@@ -100,6 +100,11 @@
 % \setmathfont{STIXTwoMath-Regular}[
 % 	Extension=.otf,
 % ]
+
+\usepackage[defaultsans]{lato}
+\lato
+\usepackage{lete-sans-math}
+\AtBeginDocument{\let\setminus\reversesolidus}
 
 % turn off header and footer
 \pagestyle{empty}
@@ -173,13 +178,6 @@
   afterskip=1ex,
   font=\sffamily\color{subpar}
 ]{subparagraph}
-
-% place in preamble and add "--shell-excape" to latex-run (for cluttex --shell-escape)
-\usepackage{tikz}
-% \usetikzlibrary{external}
-% \tikzexternalize[
-% 	prefix=figures/, % activate and define figures/ as cache folder
-% ]
 
 \NewDocumentEnvironment{condMulticols}{m}{
 	\begin{multicols*}{#1}
