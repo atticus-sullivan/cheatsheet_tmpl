@@ -35,11 +35,12 @@
 \usepackage{fontspec} % LuaLaTeX
 
 \let\mathbbalt\mathbb
-\usepackage[math-style=ISO]{unicode-math}
+\usepackage[defaultsans]{lato}
+\lato
+\usepackage{lete-sans-math}
+\AtBeginDocument{\let\setminus\reversesolidus}
+\usepackage{realscripts}
 \let\mathbb\mathbbalt% UNIVERSAL RESET TO ORIGINAL \mathbb (unicode-math behaviour still with \symbb)
-
-\setmathfont{Latin Modern Math}
-\setmathfont{Latin Modern Math}[version=bold,FakeBold={3}]
 
 % ----- Packages -----
 \usepackage{xspace}
